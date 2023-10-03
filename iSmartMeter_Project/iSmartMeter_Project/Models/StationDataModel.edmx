@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="iSmartMeterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'iSmartMeter.dbo.Station' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Station">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="api_id" Type="nvarchar" MaxLength="100" />
+          <Property Name="serialNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="serialToSain" Type="nvarchar" MaxLength="100" />
+          <Property Name="manufacturer" Type="nvarchar" MaxLength="100" />
+          <Property Name="version" Type="nvarchar" MaxLength="100" />
+          <Property Name="deviceKey" Type="nvarchar" MaxLength="100" />
+          <Property Name="lifecycle" Type="nvarchar" MaxLength="100" />
+          <Property Name="inactive" Type="nvarchar" MaxLength="100" />
+          <Property Name="timezone" Type="nvarchar" MaxLength="100" />
+          <Property Name="latitude" Type="nvarchar" MaxLength="100" />
+          <Property Name="longitude" Type="nvarchar" MaxLength="100" />
+          <Property Name="groups" Type="nvarchar" MaxLength="100" />
+          <Property Name="manual" Type="nvarchar" MaxLength="100" />
+          <Property Name="medium" Type="nvarchar" MaxLength="100" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="100" />
+          <Property Name="address" Type="nvarchar" MaxLength="200" />
+          <Property Name="installDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="metertype" Type="nvarchar" MaxLength="50" />
+          <Property Name="sitecode" Type="nvarchar" MaxLength="50" />
+          <Property Name="vendor" Type="nvarchar" MaxLength="50" />
+          <Property Name="metersize" Type="nvarchar" MaxLength="50" />
+          <Property Name="model" Type="nvarchar" MaxLength="50" />
+          <Property Name="signalstrength" Type="nvarchar" MaxLength="50" />
+          <Property Name="meterstatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="import_date" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'iSmartMeter.dbo.StationData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="StationData">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="serialNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="vm" Type="nvarchar" MaxLength="50" />
+          <Property Name="rssi" Type="nvarchar" MaxLength="50" />
+          <Property Name="timestamp" Type="nvarchar" MaxLength="50" />
+          <Property Name="normalized" Type="nvarchar" MaxLength="50" />
+          <Property Name="Batterylifetime" Type="nvarchar" MaxLength="50" />
+          <Property Name="Consumption" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'iSmartMeter.dbo.StationRealTime' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="StationRealTime">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="serialNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="consumption" Type="nvarchar" MaxLength="50" />
+          <Property Name="value" Type="nvarchar" MaxLength="50" />
+          <Property Name="timestamp" Type="nvarchar" MaxLength="50" />
+          <Property Name="valueH" Type="nvarchar" MaxLength="50" />
+          <Property Name="timestampH" Type="nvarchar" MaxLength="50" />
+          <Property Name="rssi" Type="nvarchar" MaxLength="50" />
+          <Property Name="normalized" Type="nvarchar" MaxLength="50" />
+          <Property Name="Batterylifetime" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="iSmartMeterModelStoreContainer">
+          <EntitySet Name="Station" EntityType="Self.Station" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Station].[id] AS [id], 
+    [Station].[api_id] AS [api_id], 
+    [Station].[serialNo] AS [serialNo], 
+    [Station].[serialToSain] AS [serialToSain], 
+    [Station].[manufacturer] AS [manufacturer], 
+    [Station].[version] AS [version], 
+    [Station].[deviceKey] AS [deviceKey], 
+    [Station].[lifecycle] AS [lifecycle], 
+    [Station].[inactive] AS [inactive], 
+    [Station].[timezone] AS [timezone], 
+    [Station].[latitude] AS [latitude], 
+    [Station].[longitude] AS [longitude], 
+    [Station].[groups] AS [groups], 
+    [Station].[manual] AS [manual], 
+    [Station].[medium] AS [medium], 
+    [Station].[firstName] AS [firstName], 
+    [Station].[address] AS [address], 
+    [Station].[installDate] AS [installDate], 
+    [Station].[metertype] AS [metertype], 
+    [Station].[sitecode] AS [sitecode], 
+    [Station].[vendor] AS [vendor], 
+    [Station].[metersize] AS [metersize], 
+    [Station].[model] AS [model], 
+    [Station].[signalstrength] AS [signalstrength], 
+    [Station].[meterstatus] AS [meterstatus], 
+    [Station].[import_date] AS [import_date]
+    FROM [dbo].[Station] AS [Station]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="StationData" EntityType="Self.StationData" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [StationData].[id] AS [id], 
+    [StationData].[serialNo] AS [serialNo], 
+    [StationData].[vm] AS [vm], 
+    [StationData].[rssi] AS [rssi], 
+    [StationData].[timestamp] AS [timestamp], 
+    [StationData].[normalized] AS [normalized], 
+    [StationData].[Batterylifetime] AS [Batterylifetime], 
+    [StationData].[Consumption] AS [Consumption]
+    FROM [dbo].[StationData] AS [StationData]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="StationRealTime" EntityType="Self.StationRealTime" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [StationRealTime].[id] AS [id], 
+    [StationRealTime].[serialNo] AS [serialNo], 
+    [StationRealTime].[consumption] AS [consumption], 
+    [StationRealTime].[value] AS [value], 
+    [StationRealTime].[timestamp] AS [timestamp], 
+    [StationRealTime].[valueH] AS [valueH], 
+    [StationRealTime].[timestampH] AS [timestampH], 
+    [StationRealTime].[rssi] AS [rssi], 
+    [StationRealTime].[normalized] AS [normalized], 
+    [StationRealTime].[Batterylifetime] AS [Batterylifetime]
+    FROM [dbo].[StationRealTime] AS [StationRealTime]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="iSmartMeterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Station">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="api_id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="serialNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="serialToSain" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="manufacturer" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="version" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="deviceKey" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="lifecycle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="inactive" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="timezone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="latitude" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="longitude" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="groups" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="manual" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="medium" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="firstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="installDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="metertype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sitecode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="vendor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="metersize" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="signalstrength" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="meterstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="import_date" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="StationData">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="serialNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="vm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rssi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="timestamp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="normalized" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Batterylifetime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Consumption" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="StationRealTime">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="serialNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="consumption" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="timestamp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="valueH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="timestampH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rssi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="normalized" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Batterylifetime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="iSmartMeterEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Stations" EntityType="Self.Station" />
+          <EntitySet Name="StationDatas" EntityType="Self.StationData" />
+          <EntitySet Name="StationRealTimes" EntityType="Self.StationRealTime" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="iSmartMeterModelStoreContainer" CdmEntityContainer="iSmartMeterEntities1">
+          <EntitySetMapping Name="Stations">
+            <EntityTypeMapping TypeName="iSmartMeterModel.Station">
+              <MappingFragment StoreEntitySet="Station">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="api_id" ColumnName="api_id" />
+                <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+                <ScalarProperty Name="serialToSain" ColumnName="serialToSain" />
+                <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="deviceKey" ColumnName="deviceKey" />
+                <ScalarProperty Name="lifecycle" ColumnName="lifecycle" />
+                <ScalarProperty Name="inactive" ColumnName="inactive" />
+                <ScalarProperty Name="timezone" ColumnName="timezone" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="groups" ColumnName="groups" />
+                <ScalarProperty Name="manual" ColumnName="manual" />
+                <ScalarProperty Name="medium" ColumnName="medium" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="installDate" ColumnName="installDate" />
+                <ScalarProperty Name="metertype" ColumnName="metertype" />
+                <ScalarProperty Name="sitecode" ColumnName="sitecode" />
+                <ScalarProperty Name="vendor" ColumnName="vendor" />
+                <ScalarProperty Name="metersize" ColumnName="metersize" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="signalstrength" ColumnName="signalstrength" />
+                <ScalarProperty Name="meterstatus" ColumnName="meterstatus" />
+                <ScalarProperty Name="import_date" ColumnName="import_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StationDatas">
+            <EntityTypeMapping TypeName="iSmartMeterModel.StationData">
+              <MappingFragment StoreEntitySet="StationData">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+                <ScalarProperty Name="vm" ColumnName="vm" />
+                <ScalarProperty Name="rssi" ColumnName="rssi" />
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="normalized" ColumnName="normalized" />
+                <ScalarProperty Name="Batterylifetime" ColumnName="Batterylifetime" />
+                <ScalarProperty Name="Consumption" ColumnName="Consumption" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StationRealTimes">
+            <EntityTypeMapping TypeName="iSmartMeterModel.StationRealTime">
+              <MappingFragment StoreEntitySet="StationRealTime">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+                <ScalarProperty Name="consumption" ColumnName="consumption" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="valueH" ColumnName="valueH" />
+                <ScalarProperty Name="timestampH" ColumnName="timestampH" />
+                <ScalarProperty Name="rssi" ColumnName="rssi" />
+                <ScalarProperty Name="normalized" ColumnName="normalized" />
+                <ScalarProperty Name="Batterylifetime" ColumnName="Batterylifetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
